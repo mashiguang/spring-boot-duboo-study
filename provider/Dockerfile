@@ -6,4 +6,4 @@ RUN bash -c 'touch /app.jar'
 
 EXPOSE 20880
 
-ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app.jar"]
+ENTRYPOINT ["java", "-Ddubbo.address.ip=192.168.1.213 -Djava.security.egd=file:/dev/./urandom", "-jar", "/app.jar"]
