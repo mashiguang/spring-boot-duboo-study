@@ -5,3 +5,7 @@ services:
     build: ./provider
     ports:
       - "20880"
+  dubbo-consumer:
+    build: ./consumer
+    depends_on:
+      - dubbo-provider
