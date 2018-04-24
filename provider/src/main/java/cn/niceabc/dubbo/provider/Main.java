@@ -14,7 +14,7 @@ import java.io.IOException;
 public class Main implements CommandLineRunner{
     private static Logger log = LoggerFactory.getLogger(Main.class);
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
     }
 
