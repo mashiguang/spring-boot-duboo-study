@@ -1,0 +1,7 @@
+version: '2'
+
+services:
+  dubbo-provider:
+    build: ./provider
+    ports:
+      - "20880"
