@@ -5,9 +5,9 @@
 
     <dubbo:application name="spring-boot-dubbo-provider" owner="shiguang.ma" organization="nd"/>
 
-    <dubbo:registry address="zookeeper://192.168.1.213:2181"/>
+    <dubbo:registry address="${dubbo.registry.address}"/>
 
-    <dubbo:protocol name="dubbo" port="20880"/>
+    <dubbo:protocol name="dubbo" port="${dubbo.protocol.port}"/>
 
     <dubbo:service interface="cn.niceabc.dubbo.api.UserService" ref="userService"/>
 
