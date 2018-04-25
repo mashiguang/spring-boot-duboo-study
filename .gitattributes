@@ -1,1 +1,3 @@
-*.java linguist-language=java
+# *.java linguist-language=java
+mvnw linguist-vendored=false
+mvnw.cmd linguist-vendored=false
