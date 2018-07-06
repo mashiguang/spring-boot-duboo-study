@@ -14,6 +14,8 @@ public class UserServiceProvider implements UserService {
 
     @Override
     public User get(Long id) {
+        log.debug("in cn.niceabc.dubbo.provider.UserServiceProvider.get");
+
         User u = new User();
         u.setId(1L);
         u.setName("Jack");
