@@ -11,7 +11,9 @@
     reties, 失败后重试的次数，不含第1次
     check, 检查没有提供者时报错
     -->
-    <dubbo:reference id="userService" interface="cn.niceabc.dubbo.api.UserService" retries="3"
-        check="false" />
+    <dubbo:reference id="userService" interface="cn.niceabc.dubbo.api.UserService"
+                     retries="3"
+                     check="false"
+    />
 
 </beans>
