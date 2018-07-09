@@ -23,7 +23,7 @@
     -->
     <dubbo:service interface="cn.niceabc.dubbo.api.UserService" ref="userService"
                    retries="3"
-                   protocol="dubbo"/>
+                   protocol="dubbo" version="0.0.2"/>
 
     <!--
     使用rmi协议
