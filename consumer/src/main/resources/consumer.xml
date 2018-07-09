@@ -7,7 +7,7 @@
 
     <dubbo:registry id="zk_registry" address="${dubbo.registry.address}" default="true"/>
 
-    <dubbo:registry id="redis_registry" address="redis://192.168.1.213:6379" default="false"/>
+    <dubbo:registry id="redis_registry" address="${redis.registry.address}" default="false"/>
 
     <!--
     check, 检查没有提供者时报错
