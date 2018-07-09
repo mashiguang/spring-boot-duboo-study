@@ -13,7 +13,6 @@
 
     <!--
     reties, 失败后重试的次数，不含第1次
-
     url="dubbo://192.168.1.213:32812", 直连提供者
     register=false, 不注册只订阅服务，其它消费者可以直连到本服务
     subscribe=false, 只注册
@@ -25,6 +24,9 @@
         protocol="dubbo"
         />
 
+    <!--
+    使用rmi协议
+    -->
     <dubbo:service interface="cn.niceabc.dubbo.api.FileService" ref="fileService" protocol="rmi"/>
 
 </beans>
