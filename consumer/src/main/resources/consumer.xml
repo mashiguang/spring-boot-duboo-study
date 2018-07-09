@@ -8,18 +8,11 @@
     <dubbo:registry address="${dubbo.registry.address}"/>
 
     <!--
-    reties, 失败后重试的次数，不含第1次
     check, 检查没有提供者时报错
-    url="dubbo://192.168.1.213:32812", 直连提供者
-    register=false, 不注册只订阅服务，其它消费者可以直连到本服务
-    subscribe=false, 只注册
-    dynamic=false, 静态服务? 人工管理服务提供者的上线下线
-
     -->
     <dubbo:reference id="userService" interface="cn.niceabc.dubbo.api.UserService"
-                     retries="3"
-                     check="false"
+        check="false"/>
 
-    />
+    <dubbo:reference id="fileService" interface="cn.niceabc.dubbo.api.FileService" protocol="rmi"/>
 
 </beans>

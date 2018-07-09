@@ -1,5 +1,6 @@
 package cn.niceabc.dubbo.consumer;
 
+import cn.niceabc.dubbo.api.FileService;
 import cn.niceabc.dubbo.api.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,5 +31,8 @@ public class Main implements CommandLineRunner {
 
         UserService userService = (UserService) context.getBean("userService");
         log.debug("user.name={}", userService.get(1L).getName());
+
+        FileService fileService = (FileService) context.getBean("fileService");
+        log.debug("use protocol rmi, return:"+new String(fileService.download()));
     }
 }
