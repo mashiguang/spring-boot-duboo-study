@@ -2,6 +2,7 @@ package cn.niceabc.dubbo.consumer;
 
 import cn.niceabc.dubbo.api.FileService;
 import cn.niceabc.dubbo.api.UserService;
+import com.alibaba.dubbo.rpc.service.EchoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,10 @@ public class Main implements CommandLineRunner {
     @Override
     public void run(String... args) {
         log.debug("consumer running.");
+
+        EchoService echoService = (EchoService) context.getBean("userService");
+        String status = (String) echoService.$echo("ok");
+        log.debug("userService回声测试, return: {}", status);
 
         UserService userService = (UserService) context.getBean("userService");
         log.debug("[registry:zookeeper,protocol:dubbo], return: {}", userService.get(1L).getName());

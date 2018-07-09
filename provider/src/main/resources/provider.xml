@@ -21,10 +21,12 @@
     dynamic=false, 静态服务? 人工管理服务提供者的上线下线
     group="xx", 服务分组怎么用？场景是什么？
     version="0.0.0"，多版本
+    cache="lru", 缓存策略
     -->
     <dubbo:service interface="cn.niceabc.dubbo.api.UserService" ref="userService"
                    retries="3"
-                   protocol="dubbo"/>
+                   protocol="dubbo"
+                   cache="lru"/>
 
     <!--
     使用rmi协议
