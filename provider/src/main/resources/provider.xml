@@ -20,10 +20,11 @@
     subscribe=false, 只注册
     dynamic=false, 静态服务? 人工管理服务提供者的上线下线
     group="xx", 服务分组怎么用？场景是什么？
+    version="0.0.0"，多版本
     -->
     <dubbo:service interface="cn.niceabc.dubbo.api.UserService" ref="userService"
                    retries="3"
-                   protocol="dubbo" version="0.0.2"/>
+                   protocol="dubbo"/>
 
     <!--
     使用rmi协议
