@@ -30,9 +30,9 @@ public class Main implements CommandLineRunner {
         log.debug("consumer running.");
 
         UserService userService = (UserService) context.getBean("userService");
-        log.debug("user.name={}", userService.get(1L).getName());
+        log.debug("[registry:zookeeper,protocol:dubbo], return: {}", userService.get(1L).getName());
 
         FileService fileService = (FileService) context.getBean("fileService");
-        log.debug("use protocol rmi, return:"+new String(fileService.download()));
+        log.debug("[registry:redis,protocol:rmi], return:"+new String(fileService.download()));
     }
 }
