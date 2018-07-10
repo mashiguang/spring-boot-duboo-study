@@ -2,6 +2,7 @@ package cn.niceabc.dubbo.consumer;
 
 import cn.niceabc.dubbo.api.FileService;
 import cn.niceabc.dubbo.api.UserService;
+import com.alibaba.dubbo.rpc.RpcContext;
 import com.alibaba.dubbo.rpc.service.EchoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,5 +40,10 @@ public class Main implements CommandLineRunner {
 
         FileService fileService = (FileService) context.getBean("fileService");
         log.debug("[registry:redis,protocol:rmi], return:"+new String(fileService.download()));
+
+        log.debug("本端是否为consumer端:{}", RpcContext.getContext().isConsumerSide());
+        log.debug("最后一次调用provider端地址:{}", RpcContext.getContext().getRemoteHost());
+        log.debug("配置信息:{}", RpcContext.getContext().getUrl());
+
     }
 }
