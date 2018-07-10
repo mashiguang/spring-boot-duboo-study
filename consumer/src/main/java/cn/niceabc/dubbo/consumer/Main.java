@@ -31,6 +31,8 @@ public class Main implements CommandLineRunner {
     public void run(String... args) {
         log.debug("consumer running.");
 
+        RpcContext.getContext().setAttachment("param1", "隐式参数1");
+
         EchoService echoService = (EchoService) context.getBean("userService");
         String status = (String) echoService.$echo("ok");
         log.debug("userService回声测试, return: {}", status);
