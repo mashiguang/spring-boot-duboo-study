@@ -11,9 +11,12 @@
 
     <!--
     check, 检查没有提供者时报错
+    async, 异步
     -->
     <dubbo:reference id="userService" interface="cn.niceabc.dubbo.api.UserService"
-        check="false"/>
+                     check="false">
+        <dubbo:method name="getAll" async="true"/>
+    </dubbo:reference>
 
     <dubbo:reference id="fileService" interface="cn.niceabc.dubbo.api.FileService"
                      protocol="rmi"
