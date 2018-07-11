@@ -36,4 +36,11 @@
                    protocol="rmi"
                    registry="redis_registry"/>
 
+    <dubbo:service interface="cn.niceabc.dubbo.api.CallbackService"
+                   ref="callbackService">
+        <dubbo:method name="addListener">
+            <dubbo:argument index="1" callback="true"/>
+        </dubbo:method>
+    </dubbo:service>
+
 </beans>

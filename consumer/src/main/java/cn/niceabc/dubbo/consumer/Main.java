@@ -1,8 +1,6 @@
 package cn.niceabc.dubbo.consumer;
 
-import cn.niceabc.dubbo.api.FileService;
-import cn.niceabc.dubbo.api.User;
-import cn.niceabc.dubbo.api.UserService;
+import cn.niceabc.dubbo.api.*;
 import com.alibaba.dubbo.rpc.RpcContext;
 import com.alibaba.dubbo.rpc.service.EchoService;
 import org.slf4j.Logger;
@@ -58,7 +56,18 @@ public class Main implements CommandLineRunner {
 
         log.debug("本端是否为consumer端:{}", RpcContext.getContext().isConsumerSide());
         log.debug("最后一次调用provider端地址:{}", RpcContext.getContext().getRemoteHost());
-        log.debug("配置信息:{}", RpcContext.getContext().getUrl());
+        log.debug("配置信息:{}\n", RpcContext.getContext().getUrl());
+
+
+        CallbackService callbackService = (CallbackService) context.getBean("callbackService");
+        callbackService.addListener("hello", new CallbackListener() {
+            @Override
+            public void changed(String msg) {
+                log.debug("测试callback: {}", msg);
+                log.debug("本端是否为consumer端:{}", RpcContext.getContext().isConsumerSide());
+                log.debug("本端是否为provider端:{}", RpcContext.getContext().isProviderSide());
+            }
+        });
 
     }
 }

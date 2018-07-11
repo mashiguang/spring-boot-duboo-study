@@ -22,4 +22,6 @@
                      protocol="rmi"
                      registry="redis_registry"/>
 
+    <dubbo:reference id="callbackService" interface="cn.niceabc.dubbo.api.CallbackService"/>
+
 </beans>
