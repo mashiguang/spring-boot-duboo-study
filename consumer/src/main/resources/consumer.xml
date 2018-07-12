@@ -15,13 +15,19 @@
     -->
     <dubbo:reference id="userService" interface="cn.niceabc.dubbo.api.UserService"
                      check="false">
+        <dubbo:method name="get" onreturn="notify.onreturn"/>
         <dubbo:method name="getAll" async="true"/>
     </dubbo:reference>
 
+    <!--
+    rmi
+    redis_registry
+    -->
     <dubbo:reference id="fileService" interface="cn.niceabc.dubbo.api.FileService"
                      protocol="rmi"
                      registry="redis_registry"/>
 
+    <!--参数回调-->
     <dubbo:reference id="callbackService" interface="cn.niceabc.dubbo.api.CallbackService"/>
 
 </beans>
