@@ -64,6 +64,7 @@ public class Main implements CommandLineRunner {
             @Override
             public void changed(String msg) {
                 log.debug("测试callback: {}", msg);
+                // no consumer, no provider.
                 log.debug("本端是否为consumer端:{}", RpcContext.getContext().isConsumerSide());
                 log.debug("本端是否为provider端:{}", RpcContext.getContext().isProviderSide());
             }
