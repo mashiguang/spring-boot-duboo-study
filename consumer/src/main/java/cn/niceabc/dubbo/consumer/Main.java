@@ -36,12 +36,15 @@ public class Main implements CommandLineRunner {
 
         RpcContext.getContext().setAttachment("param1", "隐式参数1");
 
+        /* echo 不能用在stub上, userService做了stub
         EchoService echoService = (EchoService) context.getBean("userService");
         String status = (String) echoService.$echo("ok");
-        log.debug("userService回声测试, return: {}", status);
+        log.debug("echoService, return: {}", status);*/
 
         UserService userService = (UserService) context.getBean("userService");
         log.debug("[registry:zookeeper,protocol:dubbo], return: {}", userService.get(1L).getName());
+
+        log.debug("stub test, return: {}", userService.get(null).getName());
 
         //异步
         userService.getAll();
