@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 @Service("callbackService")
 public class CallbackServiceImpl implements CallbackService {
     @Override
-    public void addListener(String key, CallbackListener listener) {
+    public void hello(String key, CallbackListener listener) {
 
-        listener.changed(key);
+        listener.changed(key+" from provider.");
     }
 }

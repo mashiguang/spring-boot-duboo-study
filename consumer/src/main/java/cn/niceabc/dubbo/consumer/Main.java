@@ -60,7 +60,7 @@ public class Main implements CommandLineRunner {
 
 
         CallbackService callbackService = (CallbackService) context.getBean("callbackService");
-        callbackService.addListener("hello", new CallbackListener() {
+        callbackService.hello("hello", new CallbackListener() {
             @Override
             public void changed(String msg) {
                 log.debug("测试callback: {}", msg);
