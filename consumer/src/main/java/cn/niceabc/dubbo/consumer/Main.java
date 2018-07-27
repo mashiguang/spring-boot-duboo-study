@@ -13,8 +13,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.PropertySource;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 @SpringBootApplication
@@ -75,6 +78,27 @@ public class Main implements CommandLineRunner {
 
         ProblemService problemService = (ProblemService) context.getBean("problemService");
         log.debug("exception test, {}", problemService.invoke());
+
+
+        // 并发测试，服务端最多有n个线程执行，n配置在provider.xml
+        ExecutorService executorService = Executors.newFixedThreadPool(20);
+
+        List<Future<String>> futures = new ArrayList<>();
+        for (int i = 0; i < 50; i++) {
+            futures.add(executorService.submit( () -> problemService.invoke()));
+        }
+
+        futures.forEach(f -> {
+            try {
+                log.debug("并发测试：{}", f.get());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+        });
+
+        executorService.shutdown();
 
     }
 }

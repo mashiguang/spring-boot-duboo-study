@@ -28,7 +28,8 @@
                    retries="3"
                    protocol="dubbo"
                    cache="lru"
-                   stub="cn.niceabc.dubbo.api.UserServiceStub" delay="-1"/>
+                   stub="cn.niceabc.dubbo.api.UserServiceStub"
+                   delay="-1"/>
 
     <!--
     使用rmi协议
@@ -46,7 +47,10 @@
     </dubbo:service>
 
     <dubbo:service interface="cn.niceabc.dubbo.api.ProblemService"
-                   ref="problemService" mock="cn.niceabc.dubbo.api.ProblemServiceMock">
+                   ref="problemService"
+                   mock="true"
+                   executes="5">
+
     </dubbo:service>
 
 </beans>
