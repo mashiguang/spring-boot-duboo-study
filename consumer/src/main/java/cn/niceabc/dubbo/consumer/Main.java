@@ -73,5 +73,8 @@ public class Main implements CommandLineRunner {
             }
         });
 
+        ProblemService problemService = (ProblemService) context.getBean("problemService");
+        log.debug("exception test, {}", problemService.invoke());
+
     }
 }

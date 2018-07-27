@@ -30,4 +30,7 @@
     <!--参数回调-->
     <dubbo:reference id="callbackService" interface="cn.niceabc.dubbo.api.CallbackService"/>
 
+    <!--mock-->
+    <dubbo:reference id="problemService" interface="cn.niceabc.dubbo.api.ProblemService"/>
+
 </beans>
