@@ -76,7 +76,7 @@ public class Main implements CommandLineRunner {
             }
         });
 
-        ProblemService problemService = (ProblemService) context.getBean("problemService");
+        /*ProblemService problemService = (ProblemService) context.getBean("problemService");
         log.debug("exception test, {}", problemService.invoke());
 
 
@@ -84,7 +84,7 @@ public class Main implements CommandLineRunner {
         ExecutorService executorService = Executors.newFixedThreadPool(20);
 
         List<Future<String>> futures = new ArrayList<>();
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 10; i++) {
             futures.add(executorService.submit( () -> problemService.invoke()));
         }
 
@@ -98,7 +98,7 @@ public class Main implements CommandLineRunner {
             }
         });
 
-        executorService.shutdown();
+        executorService.shutdown();*/
 
     }
 }

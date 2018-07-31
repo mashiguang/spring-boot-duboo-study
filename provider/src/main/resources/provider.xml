@@ -48,7 +48,7 @@
 
     <dubbo:service interface="cn.niceabc.dubbo.api.ProblemService"
                    ref="problemService"
-                   mock="true"
+                   mock="return null"
                    executes="5">
 
     </dubbo:service>
