@@ -48,6 +48,7 @@ public class Main implements CommandLineRunner {
         log.debug("[registry:zookeeper,protocol:dubbo], return: {}", userService.get(1L).getName());
 
         log.debug("stub test, return: {}", userService.get(null).getName());
+        log.debug("配置信息:{}\n", RpcContext.getContext().getUrl());
 
         //异步
         userService.getAll();

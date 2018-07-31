@@ -23,13 +23,16 @@
     version="0.0.0"，多版本
     cache="lru", 缓存策略
     delay, 延迟暴露，5000延迟5秒，-1延迟到spring初始化完成再暴露
+    token, 消费者必须拿到令牌，才能访问提供者
+
     -->
     <dubbo:service interface="cn.niceabc.dubbo.api.UserService" ref="userService"
                    retries="3"
                    protocol="dubbo"
                    cache="lru"
                    stub="cn.niceabc.dubbo.api.UserServiceStub"
-                   delay="-1"/>
+                   delay="-1"
+                   token="true"/>
 
     <!--
     使用rmi协议
