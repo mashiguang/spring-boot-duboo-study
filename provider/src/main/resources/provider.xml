@@ -32,7 +32,7 @@
                    cache="lru"
                    stub="cn.niceabc.dubbo.api.UserServiceStub"
                    delay="-1"
-                   token="true" cluster="forking"/>
+                   token="true"/>
 
     <!--
     使用rmi协议
