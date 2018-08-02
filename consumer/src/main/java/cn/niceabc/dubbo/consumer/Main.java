@@ -52,6 +52,7 @@ public class Main implements CommandLineRunner {
         log.debug("配置信息:{}\n", RpcContext.getContext().getUrl());
 
         //异步
+        //使用异步时，注意provider端要能访问到consumer
         userService.getAll();
         Future<List<User>> usersFuture = RpcContext.getContext().getFuture();
 
