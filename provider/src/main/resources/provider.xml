@@ -39,7 +39,7 @@
     -->
     <dubbo:service interface="cn.niceabc.dubbo.api.FileService"
                    ref="fileService"
-                   protocol="rmi"
+                   protocol="dubbo"
                    registry="zk_registry"/>
 
     <dubbo:service interface="cn.niceabc.dubbo.api.CallbackService"
