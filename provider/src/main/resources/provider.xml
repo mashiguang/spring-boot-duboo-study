@@ -9,7 +9,7 @@
 
     <dubbo:registry id="redis_registry" address="${redis.registry.address}" default="false"/>
 
-    <dubbo:protocol name="dubbo" port="${dubbo.protocol.port}"/>
+    <dubbo:protocol name="dubbo" port="${dubbo.protocol.port}" default="true"/>
 
     <dubbo:protocol name="rmi" port="${rmi.protocol.port}"/>
 
@@ -40,10 +40,11 @@
     <dubbo:service interface="cn.niceabc.dubbo.api.FileService"
                    ref="fileService"
                    protocol="rmi"
-                   registry="redis_registry"/>
+                   registry="zk_registry"/>
 
     <dubbo:service interface="cn.niceabc.dubbo.api.CallbackService"
-                   ref="callbackService">
+                   ref="callbackService"
+                   protocol="dubbo">
         <dubbo:method name="hello">
             <dubbo:argument index="1" callback="true"/>
         </dubbo:method>
@@ -51,6 +52,7 @@
 
     <dubbo:service interface="cn.niceabc.dubbo.api.ProblemService"
                    ref="problemService"
+                   protocol="dubbo"
                    mock="return null"
                    executes="5">
 
