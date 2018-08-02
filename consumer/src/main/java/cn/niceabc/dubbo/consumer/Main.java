@@ -79,6 +79,16 @@ public class Main implements CommandLineRunner {
             }
         });
 
+        IndexService indexServiceFoo = (IndexService) context.getBean("indexServiceFoo");
+        log.debug("use group foo, {}", indexServiceFoo.index());
+
+        IndexService indexServiceBar = (IndexService) context.getBean("indexServiceBar");
+        log.debug("use group bar, {}", indexServiceBar.index());
+
+        IndexService indexServiceRandom = (IndexService) context.getBean("indexServiceRandom");
+        log.debug("use group random, {}", indexServiceRandom.index());
+
+
         /*ProblemService problemService = (ProblemService) context.getBean("problemService");
         log.debug("exception test, {}", problemService.invoke());
 

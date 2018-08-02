@@ -11,7 +11,7 @@
 
     <dubbo:protocol name="dubbo" port="${dubbo.protocol.port}" default="true"/>
 
-    <dubbo:protocol name="rmi" port="${rmi.protocol.port}"/>
+    <!--<dubbo:protocol name="rmi" port="${rmi.protocol.port}"/>-->
 
     <!--
     reties, 失败后重试的次数，不含第1次
@@ -57,5 +57,8 @@
                    executes="5">
 
     </dubbo:service>
+
+    <dubbo:service interface="cn.niceabc.dubbo.api.IndexService" ref="indexServiceFoo" group="foo"/>
+    <dubbo:service interface="cn.niceabc.dubbo.api.IndexService" ref="indexServiceBar" group="bar"/>
 
 </beans>
