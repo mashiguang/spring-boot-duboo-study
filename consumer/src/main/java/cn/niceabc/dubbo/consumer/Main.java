@@ -46,6 +46,7 @@ public class Main implements CommandLineRunner {
 
         UserService userService = (UserService) context.getBean("userService");
         log.debug("[registry:zookeeper,protocol:dubbo], return: {}", userService.get(1L).getName());
+        log.debug("配置信息:{}\n", RpcContext.getContext().getUrl());
 
         log.debug("stub test, return: {}", userService.get(null).getName());
         log.debug("配置信息:{}\n", RpcContext.getContext().getUrl());

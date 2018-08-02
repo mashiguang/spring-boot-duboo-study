@@ -24,8 +24,8 @@
     redis_registry
     -->
     <dubbo:reference id="fileService" interface="cn.niceabc.dubbo.api.FileService"
-                     protocol="rmi"
-                     registry="redis_registry"/>
+                     protocol="dubbo"
+                     registry="zk_registry"/>
 
     <!--参数回调-->
     <dubbo:reference id="callbackService" interface="cn.niceabc.dubbo.api.CallbackService"/>
