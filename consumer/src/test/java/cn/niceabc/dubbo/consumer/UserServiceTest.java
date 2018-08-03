@@ -2,6 +2,7 @@ package cn.niceabc.dubbo.consumer;
 
 import cn.niceabc.dubbo.api.UserService;
 import com.alibaba.dubbo.rpc.RpcContext;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -24,7 +25,10 @@ public class UserServiceTest {
 
     @Test
     public void test() {
-        log.debug("[registry:zookeeper,protocol:dubbo], return: {}", userService.get(1L).getName());
+        String username = userService.get(1L).getName();
+        log.debug("[registry:zookeeper,protocol:dubbo], return: {}", username);
         log.debug("配置信息:{}\n", RpcContext.getContext().getUrl());
+
+        Assert.assertEquals("Jack", username);
     }
 }
