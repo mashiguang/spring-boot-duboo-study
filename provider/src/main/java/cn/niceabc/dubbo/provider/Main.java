@@ -1,5 +1,6 @@
 package cn.niceabc.dubbo.provider;
 
+import com.alibaba.dubbo.config.spring.context.annotation.DubboComponentScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -13,6 +14,7 @@ import java.io.IOException;
 @SpringBootApplication
 @ImportResource("provider.xml")
 @PropertySource("dubbo.properties")
+@DubboComponentScan
 public class Main implements CommandLineRunner{
     private static Logger log = LoggerFactory.getLogger(Main.class);
 

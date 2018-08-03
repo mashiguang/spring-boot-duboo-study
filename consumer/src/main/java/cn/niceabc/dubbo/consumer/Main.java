@@ -1,5 +1,6 @@
 package cn.niceabc.dubbo.consumer;
 
+import com.alibaba.dubbo.config.spring.context.annotation.DubboComponentScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.PropertySource;
 @SpringBootApplication
 @ImportResource("consumer.xml")
 @PropertySource("dubbo.properties")
+@DubboComponentScan
 public class Main {
     private static Logger log = LoggerFactory.getLogger(Main.class);
 
