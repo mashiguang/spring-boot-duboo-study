@@ -1,5 +1,6 @@
 package cn.niceabc.dubbo.consumer;
 
+import cn.niceabc.dubbo.api.User;
 import cn.niceabc.dubbo.api.UserService;
 import com.alibaba.dubbo.rpc.RpcContext;
 import org.junit.Assert;
@@ -24,11 +25,32 @@ public class UserServiceTest {
     private UserService userService;
 
     @Test
-    public void test() {
-        String username = userService.get(1L).getName();
-        log.debug("[registry:zookeeper,protocol:dubbo], return: {}", username);
-        log.debug("配置信息:{}\n", RpcContext.getContext().getUrl());
+    public void testGet() {
+        User user = userService.get(1L);
+        String username = user.getName();
 
         Assert.assertEquals("Jack", username);
+    }
+
+    @Test
+    public void testAttachment() {
+        log.debug("测试隐式参数");
+
+        RpcContext.getContext().setAttachment("nickname", "Jacky");
+
+        User user = userService.get(1L);
+        String username = user.getName();
+        String nickname = user.getNickname();
+
+        Assert.assertEquals("Jack", username);
+        Assert.assertEquals("Jacky", nickname);
+    }
+
+    @Test
+    public void testStub() {
+        User user = userService.get(null);
+        String username = user.getName();
+
+        Assert.assertEquals("Mr.Null.", username);
     }
 }

@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class User implements Serializable{
     private Long id;
     private String name;
+    private String nickname;
 
     public Long getId() {
         return id;
@@ -22,11 +23,20 @@ public class User implements Serializable{
         this.name = name;
     }
 
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", nickname='" + nickname + '\'' +
                 '}';
     }
 }

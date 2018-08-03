@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service("userService")
@@ -20,14 +21,21 @@ public class UserServiceProvider implements UserService {
     public User get(Long id) {
         log.debug("in cn.niceabc.dubbo.provider.UserServiceProvider.get");
 
-        log.debug("测试隐式参数param1:{}", RpcContext.getContext().getAttachment("param1"));
+        //通过隐式参数设置nickname
+        String nickname = RpcContext.getContext().getAttachment("nickname");
+        log.debug("测试隐式参数nickname:{}", nickname);
 
-        List<User> list = getAll()
+        Optional<User> u = getAll()
                 .stream()
                 .filter(user -> id.equals(user.getId()))
-                .collect(Collectors.toList());
+                .findFirst();
 
-        return list.size()==0?null:list.get(0);
+        if (u.isPresent()){
+            User _u = u.get();
+            _u.setNickname(nickname);
+            return _u;
+        }
+        return null;
     }
 
     @Override
