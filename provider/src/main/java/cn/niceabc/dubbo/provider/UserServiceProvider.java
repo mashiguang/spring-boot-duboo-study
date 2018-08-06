@@ -23,7 +23,6 @@ public class UserServiceProvider implements UserService {
 
         //通过隐式参数设置nickname
         String nickname = RpcContext.getContext().getAttachment("nickname");
-        log.debug("测试隐式参数nickname:{}", nickname);
 
         Optional<User> u = getAll()
                 .stream()
