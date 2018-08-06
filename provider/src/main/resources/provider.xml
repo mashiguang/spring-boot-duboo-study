@@ -61,4 +61,6 @@
     <dubbo:service interface="cn.niceabc.dubbo.api.IndexService" ref="indexServiceFoo" group="foo"/>
     <dubbo:service interface="cn.niceabc.dubbo.api.IndexService" ref="indexServiceBar" group="bar"/>
 
+    <dubbo:reference id="remoteUserService" interface="cn.niceabc.dubbo.api.UserService" scope="remote"/>
+
 </beans>
