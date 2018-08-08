@@ -19,7 +19,7 @@ public class LocalServiceRunner implements CommandLineRunner {
     private ApplicationContext context;
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
 
         UserService userService = (UserService) context.getBean("userService");
         log.debug("[registry:zookeeper,protocol:dubbo], return: {}", userService.get(1L).getName());
