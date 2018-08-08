@@ -35,8 +35,4 @@
                      interface="cn.niceabc.dubbo.api.ProblemService"
                      mock="true"/>
 
-    <dubbo:reference id="indexServiceFoo" interface="cn.niceabc.dubbo.api.IndexService" group="foo"/>
-    <dubbo:reference id="indexServiceBar" interface="cn.niceabc.dubbo.api.IndexService" group="bar"/>
-    <dubbo:reference id="indexServiceRandom" interface="cn.niceabc.dubbo.api.IndexService" group="*"/>
-
 </beans>
